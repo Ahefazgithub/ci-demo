@@ -21,38 +21,11 @@ public class App {
         return (double) a / b;
     }
 
-    // BUG: null pointer risk
-    public static String getLength(String s) {
-        return "Length: " + s.length();
-    }
-
-    // BUG: empty catch block (SonarQube critical issue)
-    public static void riskyMethod() {
-        try {
-            int[] arr = new int[5];
-            arr[10] = 1;
-        } catch (Exception e) {
-            // do nothing - this is intentionally bad
-        }
-    }
-
-    // BUG: hardcoded credentials (SonarQube security hotspot)
-    private static String password = "admin123";
-    private static String secretKey = "hardcoded-secret-key-12345";
-
-    // BUG: dead/unreachable code
-    public static int deadCode(int x) {
-        if (x > 0) {
-            return x;
-        } else {
-            return -x;
-        }
-        // unreachable
-    }
-
     public static void main(String[] args) {
         System.out.println("CI Demo App");
         System.out.println("2 + 3 = " + add(2, 3));
-        riskyMethod();
+        System.out.println("10 - 4 = " + subtract(10, 4));
+        System.out.println("3 * 4 = " + multiply(3, 4));
+        System.out.println("10 / 2 = " + divide(10, 2));
     }
 }
