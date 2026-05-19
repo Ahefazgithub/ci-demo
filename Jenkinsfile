@@ -5,10 +5,6 @@ pipeline {
         SONAR_PROJECT_KEY = 'ci-demo'
     }
 
-    tools {
-        maven 'Maven'
-    }
-
     stages {
         stage('Checkout') {
             steps {
